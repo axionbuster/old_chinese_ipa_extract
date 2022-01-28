@@ -1,0 +1,163 @@
+Help: Line-by-line operation.
+Help: Will print the possible pronunciations for each Chinese character
+Help: And then, machine will convert the entire line into IPA pronunciation
+Help: Formats: 
+Help: [Line|Pronounce|IPA|Ignoring] %d: %s
+Help: %d = line number from 1, %s = message
+Help: Will also output a dictionary as cache; CLEARED upon OPENING! BACK IT UP!
+`dict.json` was successfully parsed; thank you.
+IPA 1: 呦,['qrɯw']
+IPA 1: 呦,['qrɯw']
+IPA 1: 鹿,['b·roːɡ']
+IPA 1: 鳴,['mreŋ']
+IPA 1: 、,[]
+IPA 1: 食,['ɦljɯɡ', 'lɯɡs']
+IPA 1: 野,['laːʔ', 'ɦljaʔ']
+IPA 1: 之,['tjɯ']
+IPA 1: 苹,['beŋ']
+IPA 1: 。,[]
+Line 1: 呦呦鹿鳴、食野之苹。
+Pronounce 1: qrɯw qrɯw b·roːɡ mreŋ 、 ɦljɯɡ* laːʔ* tjɯ beŋ 。
+IPA 2: 我,['ŋaːlʔ']
+IPA 2: 有,['ɢʷɯʔ']
+IPA 2: 嘉,['kraːl']
+IPA 2: 賓,['mpin']
+IPA 2: 、,[]
+IPA 2: 鼓,['kʷaːʔ']
+IPA 2: 瑟,['smriɡ']
+IPA 2: 吹,['kʰjol', 'kʰjols']
+IPA 2: 笙,['sreŋ']
+IPA 2: 。,[]
+Line 2: 我有嘉賓、鼓瑟吹笙。
+Pronounce 2: ŋaːlʔ ɢʷɯʔ kraːl mpin 、 kʷaːʔ smriɡ kʰjol* sreŋ 。
+IPA 3: 吹,['kʰjol', 'kʰjols']
+IPA 3: 笙,['sreŋ']
+IPA 3: 鼓,['kʷaːʔ']
+IPA 3: 簧,['ɡʷaːŋ']
+IPA 3: 、,[]
+IPA 3: 承,['ɡljɯŋ']
+IPA 3: 筐,['kʰʷaŋ']
+IPA 3: 是,['djeʔ']
+IPA 3: 將,['ʔsaŋ', 'ʔsaŋs']
+IPA 3: 。,[]
+Line 3: 吹笙鼓簧、承筐是將。
+Pronounce 3: kʰjol* sreŋ kʷaːʔ ɡʷaːŋ 、 ɡljɯŋ kʰʷaŋ djeʔ ʔsaŋ* 。
+IPA 4: 人,['njin']
+IPA 4: 之,['tjɯ']
+IPA 4: 好,['qʰuːʔ', 'qʰuːs']
+IPA 4: 我,['ŋaːlʔ']
+IPA 4: 、,[]
+IPA 4: 示,['ɢljils']
+IPA 4: 我,['ŋaːlʔ']
+IPA 4: 周,['tjɯw']
+IPA 4: 行,['ɡraːŋ', 'ɡaːŋ', 'ɡraːŋs', 'ɡraːŋs', 'ɡaːŋs']
+IPA 4: 。,[]
+Line 4: 人之好我、示我周行。
+Pronounce 4: njin tjɯ qʰuːʔ* ŋaːlʔ 、 ɢljils ŋaːlʔ tjɯw ɡraːŋ* 。
+Line 5: 
+Pronounce 5: 
+IPA 6: 呦,['qrɯw']
+IPA 6: 呦,['qrɯw']
+IPA 6: 鹿,['b·roːɡ']
+IPA 6: 鳴,['mreŋ']
+IPA 6: 、,[]
+IPA 6: 食,['ɦljɯɡ', 'lɯɡs']
+IPA 6: 野,['laːʔ', 'ɦljaʔ']
+IPA 6: 之,['tjɯ']
+IPA 6: 蒿,['qʰaːw']
+IPA 6: 。,[]
+Line 6: 呦呦鹿鳴、食野之蒿。
+Pronounce 6: qrɯw qrɯw b·roːɡ mreŋ 、 ɦljɯɡ* laːʔ* tjɯ qʰaːw 。
+IPA 7: 我,['ŋaːlʔ']
+IPA 7: 有,['ɢʷɯʔ']
+IPA 7: 嘉,['kraːl']
+IPA 7: 賓,['mpin']
+IPA 7: 、,[]
+IPA 7: 德,['tɯːɡ']
+IPA 7: 音,['qrɯm']
+IPA 7: 孔,['kʰloːŋʔ']
+IPA 7: 昭,['tjew']
+IPA 7: 。,[]
+Line 7: 我有嘉賓、德音孔昭。
+Pronounce 7: ŋaːlʔ ɢʷɯʔ kraːl mpin 、 tɯːɡ qrɯm kʰloːŋʔ tjew 。
+IPA 8: 視,['ɡljilʔ', 'ɡljils', 'ɢljils']
+IPA 8: 民,['min']
+IPA 8: 不,['pɯ', 'pɯʔ', "pɯ'", 'pɯ']
+IPA 8: 恌,['lew', 'l̥ʰeːw']
+IPA 8: 、,[]
+IPA 8: 君,['klun']
+IPA 8: 子,['ʔslɯʔ', 'ʔslɯʔ']
+IPA 8: 是,['djeʔ']
+IPA 8: 則,['ʔsɯːɡ']
+IPA 8: 是,['djeʔ']
+IPA 8: 傚,[]
+IPA 8: 。,[]
+Line 8: 視民不恌、君子是則是傚。
+Pronounce 8: ɡljilʔ* min pɯ* lew* 、 klun ʔslɯʔ* djeʔ ʔsɯːɡ djeʔ 傚 。
+IPA 9: 我,['ŋaːlʔ']
+IPA 9: 有,['ɢʷɯʔ']
+IPA 9: 旨,['kjiʔ']
+IPA 9: 酒,['ʔsluʔ']
+IPA 9: 、,[]
+IPA 9: 嘉,['kraːl']
+IPA 9: 賓,['mpin']
+IPA 9: 式,['hljɯɡ']
+IPA 9: 燕,['qeːns', 'qeːn', 'qeːns']
+IPA 9: 以,['lɯʔ']
+IPA 9: 敖,['ŋaːw']
+IPA 9: 。,[]
+Line 9: 我有旨酒、嘉賓式燕以敖。
+Pronounce 9: ŋaːlʔ ɢʷɯʔ kjiʔ ʔsluʔ 、 kraːl mpin hljɯɡ qeːns* lɯʔ ŋaːw 。
+Line 10: 
+Pronounce 10: 
+IPA 11: 呦,['qrɯw']
+IPA 11: 呦,['qrɯw']
+IPA 11: 鹿,['b·roːɡ']
+IPA 11: 鳴,['mreŋ']
+IPA 11: 、,[]
+IPA 11: 食,['ɦljɯɡ', 'lɯɡs']
+IPA 11: 野,['laːʔ', 'ɦljaʔ']
+IPA 11: 之,['tjɯ']
+IPA 11: 芩,['ɡrɯm']
+IPA 11: 。,[]
+Line 11: 呦呦鹿鳴、食野之芩。
+Pronounce 11: qrɯw qrɯw b·roːɡ mreŋ 、 ɦljɯɡ* laːʔ* tjɯ ɡrɯm 。
+IPA 12: 我,['ŋaːlʔ']
+IPA 12: 有,['ɢʷɯʔ']
+IPA 12: 嘉,['kraːl']
+IPA 12: 賓,['mpin']
+IPA 12: 、,[]
+IPA 12: 鼓,['kʷaːʔ']
+IPA 12: 瑟,['smriɡ']
+IPA 12: 鼓,['kʷaːʔ']
+IPA 12: 琴,['ɡrɯm']
+IPA 12: 。,[]
+Line 12: 我有嘉賓、鼓瑟鼓琴。
+Pronounce 12: ŋaːlʔ ɢʷɯʔ kraːl mpin 、 kʷaːʔ smriɡ kʷaːʔ ɡrɯm 。
+IPA 13: 鼓,['kʷaːʔ']
+IPA 13: 瑟,['smriɡ']
+IPA 13: 鼓,['kʷaːʔ']
+IPA 13: 琴,['ɡrɯm']
+IPA 13: 、,[]
+IPA 13: 和,['ɡoːl', 'ɡoːls']
+IPA 13: 樂,['ŋraːwɢ', 'raːwɢ', 'ŋraːwɢs']
+IPA 13: 且,['sʰjaːʔ', 'ʔsa']
+IPA 13: 湛,["r'uːmʔ", "ʔl'uːm", "l'um"]
+IPA 13: 。,[]
+Line 13: 鼓瑟鼓琴、和樂且湛。
+Pronounce 13: kʷaːʔ smriɡ kʷaːʔ ɡrɯm 、 ɡoːl* ŋraːwɢ* sʰjaːʔ* r'uːmʔ* 。
+IPA 14: 我,['ŋaːlʔ']
+IPA 14: 有,['ɢʷɯʔ']
+IPA 14: 旨,['kjiʔ']
+IPA 14: 酒,['ʔsluʔ']
+IPA 14: 、,[]
+IPA 14: 以,['lɯʔ']
+IPA 14: 嘉,['kraːl']
+IPA 14: 樂,['ŋraːwɢ', 'raːwɢ', 'ŋraːwɢs']
+IPA 14: 嘉,['kraːl']
+IPA 14: 賓,['mpin']
+IPA 14: 之,['tjɯ']
+IPA 14: 心,['slɯm']
+IPA 14: 。,[]
+Line 14: 我有旨酒、以嘉樂嘉賓之心。
+Pronounce 14: ŋaːlʔ ɢʷɯʔ kjiʔ ʔsluʔ 、 lɯʔ kraːl ŋraːwɢ* kraːl mpin tjɯ slɯm 。
