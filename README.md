@@ -29,17 +29,6 @@ This program caches the results on disk so the second time you run it it only ta
 ## Output
 
 ```
->> 童
-童,['doːŋ']
->> 來
-來,['m·rɯːɡ']
->> 王
-王,['ɢʷaŋ', 'ɢʷaŋs']
-```
-
-## Output (alternate)
-
-```
 >> 呦呦鹿鳴、食野之苹。
 IPA 1: 呦,['qrɯw']
 IPA 1: 呦,['qrɯw']
@@ -54,6 +43,10 @@ IPA 1: 。,[]
 Line 1: 呦呦鹿鳴、食野之苹。
 Pronounce 1: qrɯw qrɯw b·roːɡ mreŋ 、 ɦljɯɡ* laːʔ* tjɯ beŋ 。
 ```
+
+* If the Chinese character (or non-Chinese character) didn't have a Zhengzhang pronunciation, it's printed verbatim.
+* If the Chinese character had one ZZ pronunciation, the IPA representation is printed.
+* If it had more than one pronunciation, the first pronunciation (as in the English Wiktionary) is printed, then it's prefixed by an asterisk.
 
 ## Caching
 
