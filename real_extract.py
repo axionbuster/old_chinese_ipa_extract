@@ -1,5 +1,6 @@
 import sys
 import traceback
+import unicodedata
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -52,6 +53,9 @@ def zhengzhang(soup: BeautifulSoup) -> [str]:
         # Remove "unattested/reconstruction" symbols /* and /
         ipas = map(lambda e: e[2:-1], ipas)
 
+        # Normalize
+        ipas = map(lambda e: unicodedata.normalize('NFC', e), ipas)
+
         # Export
         return list(ipas)
     except:
@@ -76,6 +80,9 @@ if __name__ == '__main__':
     try:
         for line in sys.stdin:
             try:
+                # First, normalize the line according to Composition
+                unicodedata.normalize('NFC', line)
+
                 # Get rid of newline
                 line = line[:-1]
 
