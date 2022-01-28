@@ -43,9 +43,15 @@ def zhengzhang(soup: BeautifulSoup) -> [str]:
         ipas = map(lambda e: e.select('span.IPAchar'), flatten(children))
         ipas = flatten(map(lambda t: list(map(lambda e: str(e.text), t)), ipas))
 
+        # Separate by comma and then remove spaces
+        ipas = flatten(map(lambda s: s.split(','), ipas))
+        ipas = map(lambda s: s.strip(), ipas)
+
         # Remove "unattested/reconstruction" symbols /* and /
-        ipas = list(map(lambda e: e[2:-1], ipas))
-        return ipas
+        ipas = map(lambda e: e[2:-1], ipas)
+
+        # Export
+        return list(ipas)
     except:
         print("error")
         return []
