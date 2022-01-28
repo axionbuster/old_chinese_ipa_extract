@@ -145,8 +145,6 @@ if __name__ == "__main__":
                 finally:
                     line_no += 1
     except KeyboardInterrupt:
-        print("key1")
         pass
     finally:
-        print("dump")
         json.dump(ipa_cache, ipa_cache_file, indent=2)
