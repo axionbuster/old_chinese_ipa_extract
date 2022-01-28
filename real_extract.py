@@ -16,8 +16,8 @@ def http() -> requests.Session:
 
 
 # Download the HTTP file from Wiktionary
-def wikt(sess: requests.Session, word: str) -> BeautifulSoup:
-    response = sess.get(f"https://en.wiktionary.org/wiki/{word}?printable=true")
+def wikt(sesh: requests.Session, word: str) -> BeautifulSoup:
+    response = sesh.get(f"https://en.wiktionary.org/wiki/{word}?printable=true")
     soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
     return soup
 
