@@ -1,3 +1,5 @@
+import json
+import shutil
 import sys
 import traceback
 import unicodedata
@@ -72,53 +74,74 @@ if __name__ == '__main__':
     print("Help: Formats: ")
     print("Help: [Line|Pronounce|IPA|Ignoring] %d: %s")
     print("Help: %d = line number from 1, %s = message")
+    print("Help: Will also output a dictionary as cache; CLEARED upon OPENING! BACK IT UP!")
 
     line_no = 1
     ipa_cache = dict()
     sesh = http()
 
+    # Back up the dictionary
     try:
-        for line in sys.stdin:
+        shutil.copyfile("dict.json", "dict.backup.json")
+    except FileNotFoundError:
+        pass
+    finally:
+        open("dict.json", 'a').close()
+
+    try:
+        with open("dict.json", "r") as ipa_cache_file:
             try:
-                # First, normalize the line according to Composition
-                unicodedata.normalize('NFC', line)
-
-                # Get rid of newline
-                line = line[:-1]
-
-                for ch in line:
-                    ipas = None
-                    if ch not in ipa_cache.keys():
-                        web = wikt(sesh, ch)
-                        ipas = zhengzhang(web)
-                        ipa_cache[ch] = ipas
-                    else:
-                        ipas = ipa_cache[ch]
-                    print(f"IPA {line_no}: {ch},{ipas}")
-
-                # Compose the text
-                ipa_print = []
-
-                for ch in line:
-                    if ch not in ipa_cache.keys() or ipa_cache[ch] == []:
-                        ipa_print.append(ch)
-                    else:
-                        ipas = ipa_cache[ch]
-                        if len(ipas) == 1:
-                            ipa_print.append(ipas[0])
-                        else:
-                            ipa_print.append(f"{ipas[0]}*")
-
-                print(f"Line {line_no}: {line}")
-                print(f"Pronounce {line_no}: {' '.join(ipa_print)}")
-            except KeyboardInterrupt:
-                exit(0)
-            except Exception:
-                print(f"Ignoring {line_no}: \"{line}\"")
-                traceback.format_exc()
-                pass
+                ipa_cache = json.load(ipa_cache_file)
+                print("`dict.json` was successfully parsed; thank you.")
+            except:
+                print("No dictionary `dict.json` was found or it was unusable; it's a-ok.")
             finally:
-                line_no += 1
+                ipa_cache_file = open("dict.json", "w")
+
+            for line in sys.stdin:
+                try:
+                    # First, normalize the line according to Composition
+                    unicodedata.normalize('NFC', line)
+
+                    # Get rid of newline
+                    line = line[:-1]
+
+                    for ch in line:
+                        ipas = None
+                        if ch not in ipa_cache.keys():
+                            web = wikt(sesh, ch)
+                            ipas = zhengzhang(web)
+                            ipa_cache[ch] = ipas
+                        else:
+                            ipas = ipa_cache[ch]
+                        print(f"IPA {line_no}: {ch},{ipas}")
+
+                    # Compose the text
+                    ipa_print = []
+
+                    for ch in line:
+                        if ch not in ipa_cache.keys() or ipa_cache[ch] == []:
+                            ipa_print.append(ch)
+                        else:
+                            ipas = ipa_cache[ch]
+                            if len(ipas) == 1:
+                                ipa_print.append(ipas[0])
+                            else:
+                                ipa_print.append(f"{ipas[0]}*")
+
+                    print(f"Line {line_no}: {line}")
+                    print(f"Pronounce {line_no}: {' '.join(ipa_print)}")
+                except KeyboardInterrupt:
+                    break
+                except Exception:
+                    print(f"Ignoring {line_no}: \"{line}\"")
+                    traceback.format_exc()
+                    pass
+                finally:
+                    line_no += 1
     except KeyboardInterrupt:
-        exit(0)
-#%%
+        print("key1")
+        pass
+    finally:
+        print("dump")
+        json.dump(ipa_cache, ipa_cache_file, indent=2)
