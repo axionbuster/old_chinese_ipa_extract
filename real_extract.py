@@ -58,19 +58,23 @@ if __name__ == '__main__':
     sesh = http()
 
     for line in sys.stdin:
-        # Get rid of newline at the end
-        line = line[:-1]
+        try:
+            # Get rid of newline
+            line = line[:-1]
 
-        # Make sure only single characters are admitted
-        if len(line) != 1:
-            print("Single Chinese characters only!")
-            continue
+            for ch in line:
+                ipas = None
+                if ch not in ipa_cache.keys():
+                    web = wikt(sesh, ch)
+                    ipas = zhengzhang(web)
+                    ipa_cache[ch] = ipas
+                else:
+                    ipas = ipa_cache[ch]
+                print(f"{ch},{ipas}")
+        except KeyboardInterrupt as ke:
+            exit(0)
+        except:
+            print(f"Ignoring: \"{line}\"", file=sys.stderr)
+            pass
 
-        ipas = None
-        if line not in ipa_cache.keys():
-            web = wikt(sesh, line)
-            ipas = zhengzhang(web)
-            ipa_cache[line] = ipas
-        else:
-            ipas = ipa_cache[line]
-        print(f"{line},{ipas}")
+#%%
