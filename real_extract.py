@@ -1,4 +1,6 @@
 import sys
+import traceback
+
 import requests
 from requests.adapters import HTTPAdapter
 from bs4 import BeautifulSoup
@@ -58,29 +60,58 @@ def zhengzhang(soup: BeautifulSoup) -> [str]:
 
 
 # Suppose stdin contains the chinese characters line by line.
-# One character per line.
+# Many characters per line
 if __name__ == '__main__':
+    print("Help: Line-by-line operation.")
+    print("Help: Will print the possible pronunciations for each Chinese character")
+    print("Help: And then, machine will convert the entire line into IPA pronunciation")
+    print("Help: Formats: ")
+    print("Help: [Line|Pronounce|IPA|Ignoring] %d: %s")
+    print("Help: %d = line number from 1, %s = message")
+
+    line_no = 1
     ipa_cache = dict()
     sesh = http()
 
-    for line in sys.stdin:
-        try:
-            # Get rid of newline
-            line = line[:-1]
+    try:
+        for line in sys.stdin:
+            try:
+                # Get rid of newline
+                line = line[:-1]
 
-            for ch in line:
-                ipas = None
-                if ch not in ipa_cache.keys():
-                    web = wikt(sesh, ch)
-                    ipas = zhengzhang(web)
-                    ipa_cache[ch] = ipas
-                else:
-                    ipas = ipa_cache[ch]
-                print(f"{ch},{ipas}")
-        except KeyboardInterrupt as ke:
-            exit(0)
-        except:
-            print(f"Ignoring: \"{line}\"", file=sys.stderr)
-            pass
+                for ch in line:
+                    ipas = None
+                    if ch not in ipa_cache.keys():
+                        web = wikt(sesh, ch)
+                        ipas = zhengzhang(web)
+                        ipa_cache[ch] = ipas
+                    else:
+                        ipas = ipa_cache[ch]
+                    print(f"IPA {line_no}: {ch},{ipas}")
 
+                # Compose the text
+                ipa_print = []
+
+                for ch in line:
+                    if ch not in ipa_cache.keys() or ipa_cache[ch] == []:
+                        ipa_print.append(ch)
+                    else:
+                        ipas = ipa_cache[ch]
+                        if len(ipas) == 1:
+                            ipa_print.append(ipas[0])
+                        else:
+                            ipa_print.append(f"{ipas[0]}*")
+
+                print(f"Line {line_no}: {line}")
+                print(f"Pronounce {line_no}: {' '.join(ipa_print)}")
+            except KeyboardInterrupt:
+                exit(0)
+            except Exception:
+                print(f"Ignoring {line_no}: \"{line}\"")
+                traceback.format_exc()
+                pass
+            finally:
+                line_no += 1
+    except KeyboardInterrupt:
+        exit(0)
 #%%
