@@ -8,6 +8,24 @@ The program is `real_extract.py`.
 
 Run the program in Python 3.
 
+Simple Usage:
+
+```
+> python3 real_extract.py
+>> (enter text line by line)
+```
+
+Advanced Usage:
+
+```
+> time python3 real_extract.py < shijing-luming.txt > out.txt 2> err.txt
+python3 real_extract.py < shijing-luming.txt > out.txt 2> err.txt  7.77s user 0.16s system 31% cpu 24.836 total
+> time python3 real_extract.py < shijing-luming.txt > out.txt 2> err.txt
+python3 real_extract.py < shijing-luming.txt > out.txt 2> err.txt  0.14s user 0.03s system 90% cpu 0.189 total
+```
+
+This program caches the results on disk so the second time you run it it only takes a fraction of the time.
+
 ## Output
 
 ```
@@ -50,7 +68,7 @@ The standard output contains lines that are of the following form:
 ```
 LINE = HELPLINE | OTHERLINES
 HELPLINE = "Help: " string
-OTHERLINES = PREFIX ": " number string
+OTHERLINES = PREFIX " " number ": " string
 PREFIX = "Line" | "Pronounce" | "IPA" | "Ignoring"
 ```
 
